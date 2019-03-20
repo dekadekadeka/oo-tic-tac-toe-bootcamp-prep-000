@@ -13,15 +13,6 @@ class TicTacToe
     [1,4,7],
     [2,5,8]].freeze
   
-  def play
-    turn(board) until over?(board)
-      if won?(board)
-        puts "Congratulations #{winner(board)}!"
-      elsif draw?(board)
-        puts "Cat's Game!"
-      end
-  end
-  
   def display_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts "-----------"
@@ -102,6 +93,15 @@ class TicTacToe
   def winner
     if win_combo = won?
       @board[win_combo.first]
+    end
+  end
+  
+  def play
+  turn(board) until over?(board)
+    if won?(board)
+      puts "Congratulations #{winner(board)}!"
+    elsif draw?(board)
+      puts "Cat's Game!"
     end
   end
 end
